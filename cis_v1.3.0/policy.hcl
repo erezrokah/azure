@@ -1,0 +1,527 @@
+policy "cis_v1.3.0" {
+  title =  "v1.3.0 Policy"
+  configuration {
+    provider "azure" {
+      version = ">= 0.2.4"
+    }
+  }
+
+  policy "1" {
+    title =  "Section 1"
+
+    query "1.1" {
+      title =  "1.1 Ensure that multi-factor authentication is enabled for all privileged users (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.2" {
+      title =  "1.2 Ensure that multi-factor authentication is enabled for all non-privileged users (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.3" {
+      title =  "1.3 Ensure guest users are reviewed on a monthly basis (Automated)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.4" {
+      title =  "1.4 Ensure that 'Allow users to remember multi-factor authentication on devices they trust' is 'Disabled' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.5" {
+      title =  "1.5 Ensure that 'Number of methods required to reset' is set to '2' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.6" {
+      title =  "1.6 Ensure that 'Number of days before users are asked to re-confirm their authentication information' is not set to \"0\" (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.7" {
+      title =  "1.7 Ensure that 'Notify users on password resets?' is set to 'Yes' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.8" {
+      title =  "1.8 Ensure that 'Notify all admins when other admins reset their password?' is set to 'Yes' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.9" {
+      title =  "1.9 Ensure that 'Users can consent to apps accessing company data on their behalf' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.10" {
+      title =  "1.10 Ensure that 'Users can add gallery apps to their Access Panel' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.11" {
+      title =  "1.11 Ensure that 'Users can register applications' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.12" {
+      title =  "1.12 Ensure that 'Guest user permissions are limited' is set to 'Yes' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.13" {
+      title =  "1.13 Ensure that 'Members can invite' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.14" {
+      title =  "1.14 Ensure that 'Guests can invite' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.15" {
+      title =  "1.15 Ensure that 'Restrict access to Azure AD administration portal' is set to 'Yes' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.16" {
+      title =  "1.16 Ensure that 'Restrict user ability to access groups features in the Access Pane' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.17" {
+      title =  "1.17 Ensure that 'Users can create security groups in Azure Portals' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.18" {
+      title =  "1.18 Ensure that 'Owners can manage group membership requests in the Access Panel' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.19" {
+      title =  "1.19 Ensure that 'Users can create Microsoft 365 groups in Azure Portals' is set to 'No' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.20" {
+      title =  "1.20 Ensure that 'Require Multi-Factor Auth to join devices' is set to 'Yes' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "1.21" {
+      title =  "1.21 Ensure that no custom subscription owner roles are created (Automated)"
+      query = file("queries/iam/custom_subscription_owner_roles.sql")
+    }
+
+    query "1.22" {
+      title =  "1.22 Ensure Security Defaults is enabled on Azure Active Directory (Automated)"
+      query = file("queries/manual.sql")
+    }
+
+    query "1.23" {
+      title =  "1.23 Ensure Custom Role is assigned for Administering Resource Locks (Manual)"
+      query = file("queries/manual.sql")
+    }
+  }
+
+  policy "2" {
+    title =  "Section 2"
+
+    view "azure_security_policy_parameters" {
+      title =  "GCP Log Metric Filter and Alarm"
+      query = file("queries/security/policy_assignment_parameters.sql")
+    }
+
+    query "2.1" {
+      title =  "2.1 Ensure that Azure Defender is set to On for Servers (Automatic)"
+      expect_output = true
+      query = file("queries/security/azure_defender_on_for_servers.sql")
+    }
+
+    query "2.2" {
+      title =  "2.2 Ensure that Azure Defender is set to On for App Service (Automatic)"
+      expect_output = true
+      query = file("queries/security/azure_defender_on_for_app_service.sql")
+    }
+
+    query "2.3" {
+      title =  "2.3 Ensure that Azure Defender is set to On for Azure SQL database servers (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_on_for_sql_servers.sql")
+    }
+
+    query "2.4" {
+      title =  "2.4 Ensure that Azure Defender is set to On for SQL servers on machines (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_on_for_sql_servers_on_machines.sql")
+    }
+
+
+    query "2.5" {
+      title =  "2.5 Ensure that Azure Defender is set to On for Storage (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_on_for_storage.sql")
+    }
+
+    query "2.6" {
+      title =  "2.6 Ensure that Azure Defender is set to On for Kubernetes (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_on_for_k8s.sql")
+    }
+
+    query "2.7" {
+      title =  "2.7 Ensure that Azure Defender is set to On for Container Registries (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_on_for_container_registeries.sql")
+    }
+
+    query "2.8" {
+      title =  "2.8 Ensure that Azure Defender is set to On for Key Vault (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_on_for_key_vault.sql")
+    }
+
+    query "2.9" {
+      title =  "2.9 Ensure that Windows Defender ATP (WDATP) integration with Security Center is selected (Automatic)"
+      expect_output = true
+      query = file("queries/security/defender_atp_with_security_center_integration.sql")
+    }
+
+    query "2.10" {
+      title =  "2.10 Ensure that Microsoft Cloud App Security (MCAS) integration with Security Center is selected (Automatic)"
+      expect_output = true
+      query = file("queries/security/mcas_integration_with_security_center_enabled.sql")
+    }
+
+    query "2.11" {
+      title =  "2.11 Ensure that 'Automatic provisioning of monitoring agent' is set to 'On' (Automated)"
+      expect_output = true
+      query = file("queries/security/auto_provisioning_monitoring_agent_enabled.sql")
+    }
+
+    query "2.12" {
+      title =  "2.12 Ensure any of the ASC Default policy setting is not set to 'Disabled' (Automated)"
+      query = file("queries/security/default_policy_disabled.sql")
+    }
+
+    query "2.13" {
+      title =  "2.13 Ensure 'Additional email addresses' is configured with a security contact email (Automated)"
+      //email should be valid so if there is even not valid email it will pass
+      expect_output = true
+      query = file("queries/security/security_email_configured.sql")
+    }
+
+    query "2.14" {
+      title =  "2.14 Ensure that 'Notify about alerts with the following severity' is set to 'High' (Automated)"
+      expect_output = true
+      query = file("queries/security/notify_high_severity_alerts.sql")
+    }
+
+  }
+
+  policy "azure-cis-section-3" {
+    title =  "Section 3"
+
+  }
+
+  policy "azure-cis-section-4" {
+    title =  "Section 4"
+
+    query "4.1.1" {
+      title =  "4.1.1 Ensure that 'Auditing' is set to 'On' (Automated)"
+      query = file("queries/sql/auditing_off.sql")
+    }
+
+    query "4.1.2" {
+      title =  "4.1.2 Ensure that 'Data encryption' is set to 'On' on a SQL Database (Automated)"
+      query = file("queries/sql/data_encryption_off.sql")
+    }
+
+    query "4.1.3" {
+      title =  "4.1.3 Ensure that 'Auditing' Retention is 'greater than 90 days' (Automated)"
+      query = file("queries/sql/auditing_retention_less_than_90_days.sql")
+    }
+
+    query "4.2.1" {
+      title =  "4.2.1 Ensure that Advanced Threat Protection (ATP) on a SQL server is set to 'Enabled' (Automated)"
+      query = file("queries/sql/atp_on_sql_server_disabled.sql")
+    }
+
+    query "4.2.2" {
+      title =  "4.2.2 Ensure that Vulnerability Assessment (VA) is enabled on a SQL server by setting a Storage Account (Automated)"
+      // experimentally checked and storage_container_path becomes NULL when storage account is disabled in assessment policy
+      query = file("queries/sql/va_is_enabled_on_sql_server_by_storage_account.sql")
+    }
+
+
+    query "4.2.3" {
+      title =  "4.2.3 Ensure that VA setting Periodic Recurring Scans is enabled on a SQL server (Automated)"
+      query = file("queries/sql/va_periodic_scans_enabled_on_sql_server.sql")
+    }
+
+    query "4.2.4" {
+      title =  "4.2.4 Ensure that VA setting Send scan reports to is configured for a SQL server (Automated)"
+      query = file("queries/sql/va_send_scan_report_enabled_on_sql_server.sql")
+    }
+
+    query "4.2.5" {
+      title =  "4.2.5 Ensure that VA setting 'Also send email notifications to admins and subscription owners' is set for a SQL server (Automated)"
+      query = file("queries/sql/va_send_email_to_admins_and_owners_enabled.sql")
+    }
+
+    query "4.3.1" {
+      title =  "4.3.1 Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server (Automated)"
+      query = file("queries/sql/postgresql_ssl_enforcment_disabled.sql")
+    }
+
+    query "4.3.2" {
+      title =  "4.3.2 Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server (Automated)"
+      query = file("queries/sql/mysql_ssl_enforcment_disabled.sql")
+    }
+
+
+    query "4.3.3" {
+      title =  "4.3.3 Ensure server parameter 'log_checkpoints' is set to 'ON' for PostgreSQL Database Server (Automated)"
+      query = file("queries/sql/postgresql_log_checkpoints_disabled.sql")
+    }
+
+    query "4.3.4" {
+      title =  "4.3.4 Ensure server parameter 'log_connections' is set to 'ON' for PostgreSQL Database Server (Automated)"
+      query = file("queries/sql/postgresql_log_connections_disabled.sql")
+    }
+
+    query "4.3.5" {
+      title =  "4.3.5 Ensure server parameter 'log_disconnections' is set to 'ON' for PostgreSQL Database Server (Automated)"
+      query = file("queries/sql/postgresql_log_disconnections_disabled.sql")
+    }
+
+    query "4.3.6" {
+      title =  "4.3.6 Ensure server parameter 'connection_throttling' is set to 'ON' for PostgreSQL Database Server (Automated)"
+      query = file("queries/sql/postgresql_connection_throttling_disabled.sql")
+    }
+
+    query "4.3.7" {
+      title =  "4.3.7 Ensure server parameter 'log_retention_days' is greater than 3 days for PostgreSQL Database Server (Automated)"
+      query = file("queries/sql/postgresql_log_retention_days_less_than_3_days.sql")
+    }
+
+    query "4.3.8" {
+      title =  "4.3.8 Ensure 'Allow access to Azure services' for PostgreSQL Database Server is disabled (Automated)"
+      query = file("queries/sql/postgresql_allow_access_to_azure_services_enabled.sql")
+    }
+
+    query "4.4" {
+      title =  "4.4 Ensure that Azure Active Directory Admin is configured (Automated)"
+      query = file("queries/sql/ad_admin_configured.sql")
+    }
+
+    query "4.5" {
+      title =  "4.5 Ensure SQL server's TDE protector is encrypted with Customer-managed key (Automated)"
+      query = file("queries/sql/sqlserver_tde_not_encrypted_with_cmek.sql")
+    }
+  }
+
+  policy "azure-cis-section-5" {
+    title =  "Section 5"
+
+  }
+
+  policy "azure-cis-section-6" {
+    title =  "Section 6"
+
+    view "azure_nsg_rules" {
+      title =  "Azure network security groups rules with parsed ports"
+      query = file("queries/network/nsg_rules_ports.sql")
+    }
+
+    query "6.1" {
+      title =  "6.1 Ensure that RDP access is restricted from the internet (Automated)"
+      query = file("queries/network/rdp_access_permitted.sql")
+    }
+
+
+    query "6.2" {
+      title =  "6.2 Ensure that SSH access is restricted from the internet (Automated)"
+      query = file("queries/network/ssh_access_permitted.sql")
+    }
+
+    query "6.3" {
+      title =  "6.3 Ensure no SQL Databases allow ingress 0.0.0.0/0 (ANY IP) (Automated)"
+      //todo think about "other combinations which allows access to wider public IP ranges including Windows Azure IP ranges."
+      query = file("queries/network/sql_database_allow_ingress.sql")
+    }
+
+    query "6.4" {
+      title =  "6.4 Ensure that Network Security Group Flow Log retention period is 'greater than 90 days' (Automated)"
+      query = file("queries/network/securtiy_group_flow_log_retention_less_than_90_days.sql")
+    }
+
+    query "6.5" {
+      title =  "6.5 Ensure that Network Watcher is 'Enabled' (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "6.6" {
+      title =  "6.6 Ensure that UDP Services are restricted from the Internet (Automated)"
+      query = file("queries/network/udp_services_permitted.sql")
+    }
+  }
+
+  policy "azure-cis-section-7" {
+    title =  "Section 7"
+
+    query "7.1" {
+      title =  "7.1 Ensure Virtual Machines are utilizing Managed Disks (Manual)"
+      query = file("queries/compute/vms_utilizing_managed_disks.sql")
+    }
+
+    query "7.2" {
+      title =  "7.2 Ensure that 'OS and Data' disks are encrypted with CMK (Automated)"
+      query = file("queries/compute/os_and_data_disks_encrypted_with_cmk.sql")
+    }
+
+    query "7.3" {
+      title =  "7.3 Ensure that 'Unattached disks' are encrypted with CMK (Automated)"
+      //todo maybe replace '%CustomerKey%' with 'EncryptionAtRestWithCustomerKey'
+      query = file("queries/compute/unattached_disks_are_encrypted_with_cmk.sql")
+    }
+
+    query "7.4" {
+      title =  "7.4 Ensure that only approved extensions are installed (Manual)"
+//      //todo we can list machines extensions names to ease manual check
+//      query = <<EOF
+//      SELECT v.id AS vm_id , v.name AS vm_name, r."name" AS extension_name
+//      FROM azure_compute_virtual_machines v
+//      JOIN azure_compute_virtual_machine_resources r ON
+//      v.cq_id = r.virtual_machine_cq_id
+//    EOF
+      query = file("queries/manual.sql")
+    }
+
+
+    query "7.5" {
+      title =  "7.5 Ensure that the latest OS Patches for all Virtual Machines are applied (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+
+    query "7.6" {
+      title =  "7.6 Ensure that the endpoint protection for all Virtual Machines is installed (Manual)"
+      //todo theoretically we can check if vm has security extensions but user also can have his own security extensions which we can't check
+      //      EndpointSecurity || TrendMicroDSA* || Antimalware || EndpointProtection || SCWPAgent || PortalProtectExtension* || FileSecurity*
+      query = file("queries/manual.sql")
+    }
+
+    query "7.7" {
+      title =  "7.7 Ensure that VHD's are encrypted (Manual)"
+      query = file("queries/compute/vhds_not_encrypted.sql")
+    }
+  }
+
+  policy "azure-cis-section-8" {
+    title =  "Section 8"
+
+    query "8.1" {
+      title =  "8.1 Ensure that the expiration date is set on all keys (Automated)"
+      query = file("queries/keyvault/keys_without_expiration_date.sql")
+    }
+
+    query "8.2" {
+      title =  "8.2 Ensure that the expiration date is set on all Secrets (Automated)"
+      query = file("queries/keyvault/secrets_without_expiration_date.sql")
+    }
+
+    query "8.3" {
+      title =  "8.3 Ensure that Resource Locks are set for mission critical Azure resources (Manual)"
+      query = file("queries/manual.sql")
+    }
+
+    query "8.4" {
+      title =  "8.4 Ensure the key vault is recoverable (Automated)"
+      query = file("queries/keyvault/not_recoverable.sql")
+    }
+
+    query "8.5" {
+      title =  "8.5 Enable role-based access control (RBAC) within Azure Kubernetes Services (Automated)"
+      query = file("queries/keyvault/not_recoverable.sql")
+    }
+  }
+
+
+  policy "azure-cis-section-9" {
+    title =  "Section 9"
+
+    query "9.1" {
+      title =  "9.1 Ensure App Service Authentication is set on Azure App Service (Automated)"
+      query = file("queries/web/app_auth_unset.sql")
+    }
+
+    query "9.2" {
+      title =  "9.2 Ensure web app redirects all HTTP traffic to HTTPS in Azure App Service (Automated)"
+      query = file("queries/web/app_allow_http.sql")
+    }
+
+    query "9.3" {
+      title =  "9.3 Ensure web app is using the latest version of TLS encryption (Automated)"
+      query = file("queries/web/app_using_old_tls.sql")
+    }
+
+    query "9.4" {
+      title =  "9.4 Ensure the web app has 'Client Certificates (Incoming client certificates)' set to 'On' (Automated)"
+      query = file("queries/web/app_client_cert_disabled.sql")
+    }
+
+    query "9.5" {
+      title =  "9.5 Ensure that Register with Azure Active Directory is enabled on App Service (Automated)"
+      query = file("queries/web/app_register_with_ad_disabled.sql")
+    }
+
+    query "9.6" {
+      title =  "9.6 Ensure that 'PHP version' is the latest, if used to run the web app (Manual)"
+      //we can check it but we need the latest php version. we can hardcode it here
+      //todo we can show php version to ease check process
+      query = file("queries/manual.sql")
+    }
+
+    query "9.7" {
+      title =  "9.7 Ensure that 'Python version' is the latest, if used to run the web app (Manual)"
+      //we can check it but we need the latest php version. we can hardcode it here
+      //todo we can show version to ease check process
+      query = file("queries/manual.sql")
+    }
+
+    query "9.8" {
+      title =  "9.8 Ensure that 'Java version' is the latest, if used to run the web app (Manual)"
+      //we can check it but we need the latest php version. we can hardcode it here
+      //todo we can show version to ease check process
+      query = file("queries/manual.sql")
+    }
+
+
+    query "9.9" {
+      title =  "9.9 Ensure that 'HTTP Version' is the latest, if used to run the web app (Manual)"
+      //we can check it but we need the latest php version. we can hardcode it here
+      //todo we can show version to ease check process
+      query = file("queries/manual.sql")
+    }
+
+    query "9.10" {
+      title =  "9.10 Ensure FTP deployments are disabled (Automated)"
+      query = file("queries/web/app_ftp_deployment_enabled.sql")
+    }
+
+    query "9.11" {
+      title =  "9.11 Ensure Azure Keyvaults are used to store secrets (Manual)"
+      query = file("queries/manual.sql")
+    }
+  }
+}
