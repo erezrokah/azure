@@ -190,11 +190,11 @@ policy "cis_v1.3.0" {
       query = file("queries/security/defender_on_for_key_vault.sql")
     }
 
-    // check "2.9" {
-    //   title =  "2.9 Ensure that Windows Defender ATP (WDATP) integration with Security Center is selected (Automatic)"
-    //   expect_output = true
-    //   query = file("queries/security/defender_atp_with_security_center_integration.sql")
-    // }
+    check "2.9" {
+      title =  "2.9 Ensure that Windows Defender ATP (WDATP) integration with Security Center is selected (Automatic)"
+      expect_output = true
+      query = file("queries/security/wdatp_integration_with_security_center_enabled.sql")
+    }
 
     check "2.10" {
       title =  "2.10 Ensure that Microsoft Cloud App Security (MCAS) integration with Security Center is selected (Automatic)"
