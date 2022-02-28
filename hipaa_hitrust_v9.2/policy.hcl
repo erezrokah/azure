@@ -375,7 +375,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -445,7 +445,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -521,7 +521,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -595,7 +595,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -683,7 +683,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -771,7 +771,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -859,7 +859,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
@@ -947,7 +947,7 @@ policy "hipaa_hitrust_v9.2" {
       check "6" {
         title       = "Internet-facing virtual machines should be protected with network security groups"
         description = "Protect your virtual machines from potential threats by restricting access to them with network security groups (NSG). Learn more about controlling traffic with NSGs at https://aka.ms/nsg-doc"
-        query       = file("queries/manual.sql")
+        query       = file("queries/network/asc_networksecuritygroupsoninternetfacingvirtualmachines_audit.sql")
       }
 
       check "7" {
